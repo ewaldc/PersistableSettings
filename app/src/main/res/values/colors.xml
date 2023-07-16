@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="clay">#A0908060</color>
+    <color name="dark_turquoise_200">#FF2CA9BC</color>
+    <color name="dark_turquoise_500">#FF2690A0</color>
+    <color name="dark_turquoise_700">#FF1D6874</color>
+    <color name="dark_turquoise_900">#FF154C55</color>
+    <color name="light_blue_600">#FF039BE5</color>
+    <color name="light_blue_900">#FF01579B</color>
+    <color name="light_blue_A200">#FF40C4FF</color>
+    <color name="light_blue_A400">#FF00B0FF</color>
+    <color name="black_overlay">#66000000</color>
+</resources>

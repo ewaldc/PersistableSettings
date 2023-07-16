@@ -1,0 +1,125 @@
+plugins {
+    id 'com.android.application'
+    id 'androidx.navigation.safeargs'
+    id 'com.google.devtools.ksp'
+    id 'org.jetbrains.kotlin.android'
+    id 'kotlin-parcelize'
+    id 'org.jetbrains.kotlin.plugin.serialization'
+}
+//alias (libs.plugins.kotlinSerialization)
+//    id 'org.jetbrains.kotlin.android'
+android {
+    namespace 'com.eco.virtuRun'
+    compileSdk 33
+
+    defaultConfig {
+        applicationId "com.eco.virtuRun"
+        minSdk 26
+        targetSdk 33
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        vectorDrawables.useSupportLibrary = true
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_17 //JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
+    }
+    java { toolchain { languageVersion.set(JavaLanguageVersion.of(17)) } }
+    //kotlin { jvmToolchain(1.8) }
+    buildFeatures {
+        viewBinding = true
+        compose = true
+    }
+    //dataBinding { enabled = true }
+    lintOptions { disable "Instantiatable" }
+    namespace 'com.eco.virtuRun'
+    composeOptions { kotlinCompilerExtensionVersion "$composeKotlinExtension" }
+    packagingOptions {
+        resources { excludes += '/META-INF/{AL2.0,LGPL2.1}' }
+    }
+}
+configurations {
+    cleanedAnnotations
+    compile.exclude group: 'org.jetbrains' , module:'annotations'
+}
+//sourceSets.main {
+//    java.srcDirs("build/generated/ksp/main/kotlin")
+//}
+dependencies {
+    implementation "io.insert-koin:koin-android:$koinVersion"
+    implementation "io.insert-koin:koin-android-compat:$koinVersion"
+    implementation "io.insert-koin:koin-androidx-workmanager:$koinVersion"
+    implementation "io.insert-koin:koin-androidx-navigation:$koinVersion"
+    implementation "io.insert-koin:koin-androidx-compose:$koinComposeVersion"
+
+    //implementation "org.jetbrains.kotlin:kotlin-reflect:$kotlinVersion"
+    implementation "org.jetbrains.kotlinx:kotlinx-serialization-json:$kotlinSerialization"
+    implementation 'androidx.core:core-ktx:1.10.1'
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    implementation "androidx.window:window:1.2.0-alpha01"
+
+    androidTestImplementation "androidx.navigation:navigation-testing:${navigationVersion}"
+    // Jetpack Compose Integration
+    implementation "androidx.navigation:navigation-compose:${navigationVersion}"
+    implementation "androidx.lifecycle:lifecycle-runtime-compose:${lifecycleVersion}"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-savedstate:${lifecycleVersion}"
+    implementation "androidx.activity:activity-compose:${activityComposeVersion}"
+
+    implementation "com.google.android.material:material:${materialVersion}"
+
+    implementation platform("androidx.compose:compose-bom:${composeBOMVersion}")
+    implementation 'androidx.compose.ui:ui'
+    implementation 'androidx.compose.ui:ui-tooling'
+    implementation 'androidx.compose.ui:ui-util'
+    implementation 'androidx.compose.ui:ui-graphics'
+    implementation 'androidx.compose.ui:ui-text'
+    implementation 'androidx.compose.ui:ui-tooling-preview'
+    implementation 'androidx.compose.foundation:foundation'
+    implementation "androidx.compose.foundation:foundation-layout"
+    implementation "androidx.compose.material3:material3"
+    implementation "androidx.compose.material3:material3-window-size-class"
+    implementation "androidx.compose.material:material"
+    implementation "androidx.compose.material:material-icons-core"
+    implementation "androidx.compose.material:material-icons-extended"
+    implementation "androidx.compose.runtime:runtime"
+    implementation "androidx.compose.runtime:runtime-livedata"
+
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+
+    implementation "androidx.room:room-runtime:${roomVersion}"
+    implementation "androidx.room:room-ktx:${roomVersion}"
+    //annotationProcessor "androidx.room:room-compiler:${roomVersion}"
+    ksp "androidx.room:room-compiler:${roomVersion}"
+
+    // Media3 ExoPlayer
+    implementation "androidx.media3:media3-ui:$media3Version"
+    implementation "androidx.media3:media3-exoplayer:$media3Version"
+    implementation "androidx.media3:media3-exoplayer-hls:$media3Version"
+
+    implementation 'com.github.ticofab:android-gpx-parser:v2.3.0'
+    //implementation 'org.osmdroid:osmdroid-android:6.1.14'
+
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:${lifecycleVersion}"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-compose:${lifecycleVersion}"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-savedstate:${lifecycleVersion}"
+    //implementation libs.androidx.lifecycle.livedata
+    implementation "androidx.lifecycle:lifecycle-runtime-compose:${lifecycleVersion}"
+    implementation "androidx.lifecycle:lifecycle-runtime-ktx:${lifecycleVersion}"
+    //implementation "androidx.lifecycle:lifecycle-compiler:${lifecycleVersion}"
+    implementation "androidx.lifecycle:lifecycle-common-java8:${lifecycleVersion}"
+    implementation "androidx.lifecycle:lifecycle-process:${lifecycleVersion}"
+    implementation "androidx.lifecycle:lifecycle-runtime-testing:${lifecycleVersion}"
+
+    implementation "io.coil-kt:coil:${coilVersion}"
+    implementation("io.coil-kt:coil-compose:${coilVersion}")
+}

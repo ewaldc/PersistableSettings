@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/MainFragment">
+
+    <fragment
+        android:id="@+id/MainFragment"
+        android:name="com.eco.virtuRun.MainFragment"
+        android:label="@string/main_fragment_label"
+        tools:layout="@layout/main_fragment">
+
+        <action
+            android:id="@+id/action_MainToVirtualRunFragment"
+            app:destination="@id/VirtualRunFragment"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"/>
+        <action
+            android:id="@+id/action_MainToImportRunFragment"
+            app:destination="@id/ImportRunFragment"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"/>
+        <action
+            android:id="@+id/action_MainToPersonalizeRunFragment"
+            app:destination="@id/PersonalizeRunFragment"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"/>
+        <action
+            android:id="@+id/action_MainToSelectRunFragment"
+            app:destination="@id/SelectRunFragment"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"/>
+    </fragment>
+    <!-- ViewTransactionFragment -->
+    <fragment android:id="@+id/VirtualRunFragment"
+        android:name="com.eco.virtuRun.VirtualRunFragment"
+        android:label="virtual_run_fragment"
+        tools:layout="@layout/virtual_run_fragment">
+        <action
+            android:id="@+id/action_VirtualRunToVirtualRunInfoFragment"
+            app:destination="@id/VirtualRunInfo" />
+    </fragment>
+    <fragment android:id="@+id/VirtualRunInfo"
+        android:name="com.eco.virtuRun.VirtualRunInfo"
+        android:label="virtual_run_info_fragment"
+        tools:layout="@layout/virtual_run_info">
+    </fragment>
+    <fragment android:id="@+id/ImportRunFragment"
+        android:name="com.eco.virtuRun.ImportRunFragment"
+        android:label="import_run_fragment"
+        tools:layout="@layout/import_run_fragment">
+    </fragment>
+    <fragment android:id="@+id/PersonalizeRunFragment"
+        android:name="com.eco.virtuRun.PersonalizeRunFragment"
+        android:label="personalize_run_fragment"
+        tools:layout="@layout/personalize_run_fragment">
+    </fragment>
+    <fragment android:id="@+id/SelectRunFragment"
+        android:name="com.eco.virtuRun.SelectRunFragment"
+        android:label="select_run_fragment"
+        tools:layout="@layout/import_run_fragment">
+    </fragment>
+
+    <!--
+    <fragment
+        android:id="@+id/SecondFragment"
+        android:name="com.eco.virtuRun.SecondFragment"
+        android:label="@string/second_fragment_label"
+        tools:layout="@layout/fragment_second">
+
+        <action
+            android:id="@+id/action_SecondFragment_to_FirstFragment"
+            app:destination="@id/FirstFragment" />
+    </fragment>
+    -->
+</navigation>
